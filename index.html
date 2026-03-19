@@ -624,7 +624,7 @@
 
   <!-- TOP BAR -->
   <div class="topbar">
-    Free operator kit for Amazon sellers — <span>playbook + Claude skills + prompt vault, no credit card</span>
+    Free playbook for Amazon sellers — <span>immediate access, no credit card required</span>
   </div>
 
   <!-- HERO -->
@@ -637,13 +637,13 @@
       <p class="hero-qualifier">(Without paying for expensive tools or guessing at the algorithm)</p>
 
       <p class="hero-subhead">
-        Inside <strong>The Amazon Signal Map</strong>, you'll discover the 5 behavioral signals Amazon tracks at the query level — CTR, add-to-cart, purchase, query abandonment, and query reformulation — and why most sellers are actively generating negative evidence against their rankings right now.
+        Inside <strong>The Amazon Signal Map</strong>, you'll learn what Amazon's algorithm actually measures when ranking your listings — and how to fix the copy and signal decisions that are quietly working against you.
       </p>
 
       <div class="form-wrap">
         <form class="email-form" onsubmit="handleSubmit(event)">
-          <input type="email" placeholder="Your best email address" required />
-          <button type="submit" class="btn-primary">Get the Signal Map Free</button>
+          <input type="email" placeholder="Your email" required />
+          <button type="submit" class="btn-primary">Get the Playbook</button>
         </form>
         <p class="privacy-note">No spam. No upsells in disguise. Just the playbook. Unsubscribe any time.</p>
       </div>
@@ -863,7 +863,7 @@
       <div class="form-wrap" style="max-width:480px; margin:0 auto;">
         <form class="email-form" onsubmit="handleSubmit(event)">
           <input type="email" placeholder="Your best email address" required style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); color:#fff;" />
-          <button type="submit" class="btn-primary">Get the Signal Map Free</button>
+          <button type="submit" class="btn-primary">Get the Playbook</button>
         </form>
         <p class="privacy-note" style="color:rgba(255,255,255,0.4);">No spam. Just the playbook. Unsubscribe any time.</p>
       </div>
@@ -890,7 +890,7 @@
 
       <form class="email-form" onsubmit="handleSubmit(event)">
         <input type="email" placeholder="Your best email address" required />
-        <button type="submit" class="btn-primary">Get the Signal Map Free</button>
+        <button type="submit" class="btn-primary">Get the Playbook</button>
       </form>
       <p class="privacy-note">No spam. No upsells in disguise. Just the playbook. Unsubscribe any time.</p>
     </div>
@@ -1035,11 +1035,13 @@
                style="display:inline-block; margin-top:18px; padding:13px 30px;
                       background:#e85d26; color:#fff; font-weight:700; font-size:15px;
                       border-radius:8px; text-decoration:none; letter-spacing:-0.01em;">
-               Open in Notion →
+               Open Your Playbook →
              </a>
-             <p style="font-size:12px; color:#9ca3af; margin-top:10px;">
-               Tip: Duplicate to your own Notion workspace to save it.
-             </p>`
+             <div style="margin-top:14px;">
+               <a href="/download" style="font-size:13px; color:#e85d26; text-decoration:none; font-weight:600;">
+                 Want the Claude Code skills? Install them here →
+               </a>
+             </div>`
           : `<p style="font-size:14px; color:#6b7280; margin-top:12px;">
                Check your inbox — the playbook is on its way.
              </p>`;
@@ -1057,7 +1059,7 @@
             You're in.
           </div>
           <div style="font-size:14px; color:#6b7280; line-height:1.65;">
-            The Signal Map playbook is ready for <strong>${email}</strong>.
+            Your playbook is ready.
           </div>
           ${deliveryBtn}
           ${cfg.linkedInUrl ? `<div style="margin-top:22px; font-size:12.5px; color:#9ca3af;">
