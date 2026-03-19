@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Amazon Signal Map — Free Playbook for Sellers</title>
+  <meta name="description" content="Discover the 5 behavioral signals Amazon tracks per search query — and why most sellers are generating negative evidence against their rankings without knowing it." />
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amazon-signal-map.vercel.app/" />
+  <meta property="og:title" content="The Amazon Signal Map — Free Playbook for Amazon Sellers" />
+  <meta property="og:description" content="Discover the 5 behavioral signals Amazon tracks per search query — and why most sellers are generating negative evidence against their rankings without knowing it." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The Amazon Signal Map — Free Playbook for Amazon Sellers" />
+  <meta name="twitter:description" content="Discover the 5 behavioral signals Amazon tracks per search query — and why most sellers are generating negative evidence against their rankings without knowing it." />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://amazon-signal-map.vercel.app/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0d0d0d;
+      --ink-soft: #3a3a3a;
+      --ink-muted: #6b7280;
+      --surface: #ffffff;
+      --surface-alt: #f9f9f8;
+      --surface-warm: #fdfcf8;
+      --accent: #e85d26;
+      --accent-dark: #c44d1e;
+      --accent-light: #fef0eb;
+      --border: #e5e5e3;
+      --border-strong: #d1d1ce;
+      --gold: #c9973b;
+      --radius: 10px;
+      --radius-lg: 18px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TOPBAR ─────────────────────────────────── */
+    .topbar {
+      background: var(--ink);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .topbar span { color: var(--accent); font-weight: 700; }
+
+    /* ─── HERO ───────────────────────────────────── */
+    .hero {
+      background: var(--surface-warm);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 24px 80px;
+    }
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      border: 1px solid rgba(232,93,38,0.2);
+      color: var(--accent-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .badge::before { content: '●'; font-size: 8px; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-qualifier {
+      font-size: 15px;
+      color: var(--ink-muted);
+      font-weight: 500;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .hero-subhead {
+      font-size: 17px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* ─── EMAIL FORM ─────────────────────────────── */
+    .form-wrap {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .email-form input {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .email-form input:focus { border-color: var(--accent); }
+    .email-form input::placeholder { color: var(--ink-muted); }
+
+    .btn-primary {
+      width: 100%;
+      padding: 17px 28px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .privacy-note {
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin-top: 10px;
+    }
+    .email-form button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    .form-error {
+      color: var(--accent-dark);
+      font-size: 13px;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .form-confirm-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    /* ─── MOCKUP ─────────────────────────────────── */
+    .mockup-section {
+      padding: 64px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .mockup-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .mockup-doc {
+      background: #fff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .mockup-doc::before {
+      content: 'FREE PLAYBOOK';
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+    .mockup-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .mockup-subtitle {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .mockup-divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .mockup-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+    .mockup-dot {
+      width: 18px;
+      height: 18px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .mockup-cta { text-align: center; margin-top: 4px; }
+    .mockup-pages {
+      font-size: 11px;
+      color: var(--ink-muted);
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .mockup-text h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .mockup-text p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    /* ─── SIGNALS ────────────────────────────────── */
+    .signals-section {
+      padding: 80px 24px;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+    }
+    .section-inner { max-width: 800px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-inner h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-inner > p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      margin-bottom: 40px;
+      max-width: 640px;
+      line-height: 1.65;
+    }
+
+    .signals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .signal-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .signal-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .signal-number {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .signal-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .signal-card p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ─── WHAT'S INSIDE ──────────────────────────── */
+    .inside-section {
+      padding: 80px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .inside-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .inside-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .inside-check {
+      width: 22px;
+      height: 22px;
+      background: var(--ink);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+    .inside-item-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .inside-item-text span {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── WHO IT'S FOR ───────────────────────────── */
+    .for-section {
+      padding: 80px 24px;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+    }
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .for-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .for-card strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    /* ─── URGENCY ────────────────────────────────── */
+    .urgency-section {
+      padding: 80px 24px;
+      background: var(--ink);
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .urgency-inner {
+      max-width: 740px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .urgency-inner .section-label { color: var(--gold); }
+    .urgency-inner h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .urgency-inner p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 48px;
+    }
+    .urgency-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+      text-align: left;
+    }
+    .urgency-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+    .urgency-card-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--accent);
+      font-family: 'Playfair Display', Georgia, serif;
+      margin-bottom: 8px;
+    }
+    .urgency-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .urgency-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ─── PROOF QUOTE ────────────────────────────── */
+    .quote-section {
+      padding: 72px 24px;
+      background: var(--surface-warm);
+      border-bottom: 1px solid var(--border);
+    }
+    .quote-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 0.6;
+      margin-bottom: 24px;
+      display: block;
+    }
+    blockquote {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .quote-attr {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 600;
+    }
+
+    /* ─── CTA SECTION ────────────────────────────── */
+    .cta-section {
+      padding: 100px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-inner h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .cta-inner p {
+      font-size: 16px;
+      color: var(--ink-soft);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    /* ─── ABOUT ──────────────────────────────────── */
+    .about-section {
+      padding: 72px 24px;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .about-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .about-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .about-text h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .about-role {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .about-text p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--ink-muted);
+      background: var(--surface);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 640px) {
+      .mockup-inner { grid-template-columns: 1fr; }
+      .mockup-doc { display: none; }
+      .inside-grid { grid-template-columns: 1fr; }
+      .for-grid { grid-template-columns: 1fr; }
+      .urgency-cards { grid-template-columns: 1fr; }
+      .about-card { flex-direction: column; }
+      .hero { padding: 52px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    Free operator kit for Amazon sellers — <span>playbook + Claude skills + prompt vault, no credit card</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="badge">Free Operator Kit</div>
+
+      <h1>Amazon Isn't a Black Box.<br>It's a Schema You Can <em>Request.</em></h1>
+
+      <p class="hero-qualifier">(Without paying for expensive tools or guessing at the algorithm)</p>
+
+      <p class="hero-subhead">
+        Inside <strong>The Amazon Signal Map</strong>, you'll discover the 5 behavioral signals Amazon tracks at the query level — CTR, add-to-cart, purchase, query abandonment, and query reformulation — and why most sellers are actively generating negative evidence against their rankings right now.
+      </p>
+
+      <div class="form-wrap">
+        <form class="email-form" onsubmit="handleSubmit(event)">
+          <input type="email" placeholder="Your best email address" required />
+          <button type="submit" class="btn-primary">Get the Signal Map Free</button>
+        </form>
+        <p class="privacy-note">No spam. No upsells in disguise. Just the playbook. Unsubscribe any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOCKUP + INTRO -->
+  <section class="mockup-section">
+    <div class="mockup-inner">
+      <div class="mockup-doc">
+        <div class="mockup-title">The Amazon Signal Map</div>
+        <div class="mockup-subtitle">What Your Data Export Reveals About How Amazon Really Ranks Products</div>
+        <div class="mockup-divider"></div>
+        <div class="mockup-item">
+          <div class="mockup-dot">1</div>
+          <span>The 5 behavioral signals Amazon tracks per query — confirmed data fields</span>
+        </div>
+        <div class="mockup-item">
+          <div class="mockup-dot">2</div>
+          <span>Why query abandonment and reformulation hurt your ranking</span>
+        </div>
+        <div class="mockup-item">
+          <div class="mockup-dot">3</div>
+          <span>Intent-first copy framework with before/after examples</span>
+        </div>
+        <div class="mockup-item">
+          <div class="mockup-dot">4</div>
+          <span>Step-by-step data export request checklist</span>
+        </div>
+        <div class="mockup-item">
+          <div class="mockup-dot">5</div>
+          <span>Rufus and Cosmo briefing for conversational commerce readiness</span>
+        </div>
+        <div class="mockup-item">
+          <div class="mockup-dot">6</div>
+          <span>Operator Guide: how to run Claude on your own export data</span>
+        </div>
+        <div class="mockup-item">
+          <div class="mockup-dot">7</div>
+          <span>Two Claude Code skills that automate the analysis workflow</span>
+        </div>
+        <div class="mockup-divider"></div>
+        <div class="mockup-pages">Free Operator Kit &nbsp;·&nbsp; Playbook + Skills + Prompt Vault &nbsp;·&nbsp; Immediate access</div>
+      </div>
+
+      <div class="mockup-text">
+        <h2>What one data export revealed about how Amazon ranking actually works</h2>
+        <p>
+          Amazon allows any account holder to request a full copy of all behavioral data they've collected. The export includes search sessions, keystroke chains, click patterns, add-to-cart events, purchases, query abandonment signals, and audience classifications.
+        </p>
+        <p>
+          Most sellers have never seen this data. And most sellers have never read Amazon's published research on how their intent-matching system works.
+        </p>
+        <p>
+          The gap isn't information. It's attention. This playbook closes it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE 5 SIGNALS -->
+  <section class="signals-section">
+    <div class="section-inner">
+      <div class="section-label">The Framework</div>
+      <h2>The 5 Behavioral Signals Amazon Tracks at the Query Level</h2>
+      <p>These are not theories. They are confirmed data fields in Amazon's personal data export. Every seller should understand what they mean for listing performance.</p>
+
+      <div class="signals-grid">
+        <div class="signal-card">
+          <div class="signal-number">Signal 01</div>
+          <h3>Click-Through Rate</h3>
+          <p>Amazon tracks whether shoppers click your listing for every query it appears in. Your main image, title, price, and review count are the entrance filter. Low CTR is logged as failure — per keyword, per session.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-number">Signal 02</div>
+          <h3>Add-to-Cart Rate</h3>
+          <p>A separate field tracks whether clicks convert to add-to-cart. Your detail page — bullets, images, price anchoring, reviews — is the evaluation layer. Getting the click is only the first gate.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-number">Signal 03</div>
+          <h3>Conversion Rate</h3>
+          <p>Purchase is tracked per session, per keyword. This is the terminal signal. Amazon measures the full funnel collapse — from impression to purchase — for every search query on the platform.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-number">Signal 04</div>
+          <h3>Query Abandonment</h3>
+          <p>A boolean field: query_abandoned. Shopper searched, saw your listing, left without clicking anything. Amazon logs this as intent dissatisfaction — not a neutral event. Your listing was part of the reason they left.</p>
+        </div>
+        <div class="signal-card">
+          <div class="signal-number">Signal 05</div>
+          <h3>Query Reformulation</h3>
+          <p>Shopper changed their search after seeing results that included your listing. They decided what they typed wasn't quite right. You were shown. You were part of why they kept looking. Amazon records this too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="inside-section">
+    <div class="section-inner">
+      <div class="section-label">What You Get</div>
+      <h2>Everything inside The Amazon Signal Map</h2>
+      <p>Three layers: a structured playbook built around the signal framework, an operator guide that tells you exactly how to run the analysis, and two Claude Code skills that automate it.</p>
+
+      <div class="inside-grid">
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>The 5 Signal Framework</strong>
+            <span>Each signal defined, confirmed with field names from the actual data export, and explained in terms of what it costs you when it's weak.</span>
+          </div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>Why Query Abandonment Is Hurting You Now</strong>
+            <span>How to check for it in your Search Query Performance data and what it means for the keywords you think are working.</span>
+          </div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>Intent-First Copy Framework</strong>
+            <span>Before/after examples showing the exact difference between spec-sheet listings and intent-satisfying listings. Includes the bullet rewrite formula.</span>
+          </div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>The Cosmo System Explained</strong>
+            <span>Plain-English breakdown of Amazon's intent-mapping research and what it means for how your listing gets matched to buyers.</span>
+          </div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>Rufus Readiness Brief</strong>
+            <span>What Amazon's AI shopping assistant means for your listings — and the internal brief format that future-proofs your copy for conversational commerce.</span>
+          </div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>Operator Guide (A–L)</strong>
+            <span>How to request your own export, organize the workspace, install the Claude skills, and run the analysis — step by step, in order.</span>
+          </div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>Two Claude Code Skills</strong>
+            <span>Install-ready automation: <code style="font-size:0.85em;background:var(--accent-light);padding:1px 5px;border-radius:3px;">/amazon-data-export-intelligence</code> and <code style="font-size:0.85em;background:var(--accent-light);padding:1px 5px;border-radius:3px;">/seller-intelligence-packager</code>. Claude handles the analysis. You review the outputs.</span>
+          </div>
+        </div>
+        <div class="inside-item">
+          <div class="inside-check">✓</div>
+          <div class="inside-item-text">
+            <strong>Prompt Vault</strong>
+            <span>Both analysis prompts preserved verbatim — ready to paste into any Claude session if you prefer the manual path over the skills.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="for-section">
+    <div class="section-inner">
+      <div class="section-label">Who It's For</div>
+      <h2>This playbook is for you if</h2>
+      <div class="for-grid">
+        <div class="for-card">
+          <strong>Sellers who feel stuck</strong>
+          You have rankings, maybe decent impressions, but conversion keeps underperforming and you don't know exactly why.
+        </div>
+        <div class="for-card">
+          <strong>Brand managers and agencies</strong>
+          You manage accounts for clients and want a sharper diagnostic framework than "optimize your listing" advice provides.
+        </div>
+        <div class="for-card">
+          <strong>Sellers tired of the black box narrative</strong>
+          You've been told nobody knows how the algorithm works. You'd like to know what the data actually says.
+        </div>
+        <div class="for-card">
+          <strong>Forward-thinking operators</strong>
+          You're aware Rufus and conversational commerce are changing things, and you want to understand what that means for your listings now.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NOW -->
+  <section class="urgency-section">
+    <div class="urgency-inner">
+      <div class="section-label">Why This Matters Now</div>
+      <h2>Three things are happening that make this playbook timely</h2>
+      <p>This isn't evergreen advice about optimizing listings. This is a specific window where most sellers are behind on a system that's already operating.</p>
+
+      <div class="urgency-cards">
+        <div class="urgency-card">
+          <div class="urgency-card-num">01</div>
+          <h4>Rufus is live</h4>
+          <p>Amazon's AI shopping assistant is actively routing conversational queries to product listings. Most listings aren't written for it.</p>
+        </div>
+        <div class="urgency-card">
+          <div class="urgency-card-num">02</div>
+          <h4>Cosmo is documented</h4>
+          <p>Amazon published their intent-mapping research at Sigmod 2024. The system is operational. The research is public. Most sellers haven't read it.</p>
+        </div>
+        <div class="urgency-card">
+          <div class="urgency-card-num">03</div>
+          <h4>The data is available now</h4>
+          <p>Any Amazon account holder can request the full behavioral data export today. It's free. It takes five days. Most sellers have never done it.</p>
+        </div>
+      </div>
+
+      <div class="form-wrap" style="max-width:480px; margin:0 auto;">
+        <form class="email-form" onsubmit="handleSubmit(event)">
+          <input type="email" placeholder="Your best email address" required style="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.2); color:#fff;" />
+          <button type="submit" class="btn-primary">Get the Signal Map Free</button>
+        </form>
+        <p class="privacy-note" style="color:rgba(255,255,255,0.4);">No spam. Just the playbook. Unsubscribe any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="quote-inner">
+      <span class="quote-mark">"</span>
+      <blockquote>
+        The algorithm isn't a mystery. Amazon literally published the research. They're literally giving you the data schema if you ask for it. The gap is not information. It's that most sellers never bother to look.
+      </blockquote>
+      <div class="quote-attr">— From the transcript that started this playbook</div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="section-label">Get the Playbook</div>
+      <h2>Start optimizing for what Amazon actually measures</h2>
+      <p>Free. Immediate access. No credit card. No upsell waiting on the other side. Just the Signal Map framework and the tools to use it.</p>
+
+      <form class="email-form" onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="Your best email address" required />
+        <button type="submit" class="btn-primary">Get the Signal Map Free</button>
+      </form>
+      <p class="privacy-note">No spam. No upsells in disguise. Just the playbook. Unsubscribe any time.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-inner">
+      <div class="section-label">The Author</div>
+      <div class="about-card">
+        <div class="about-avatar">A</div>
+        <div class="about-text">
+          <h3>Atif</h3>
+          <div class="about-role">Amazon Brand Manager · Listing Optimization · Seller Intelligence</div>
+          <p>
+            I work with a small number of Amazon brands on listing optimization and account-level strategy. The Signal Map framework is what I use when I audit accounts — the five signals, the intent-first copy doctrine, and the behavioral data layer that most sellers never see.
+          </p>
+          <p style="margin-top:12px;">
+            I built this playbook because most sellers have never had access to this layer of the analysis. The perspective shift alone changes how you read every Seller Central report.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>The Amazon Signal Map &nbsp;·&nbsp; Free for Amazon sellers &nbsp;·&nbsp; No affiliation with Amazon.com</p>
+    <p style="margin-top:8px; font-size:12px;">This playbook contains analysis and frameworks based on publicly available Amazon research and published behavioral data. All findings are clearly labeled as observed, inferred, or speculative where applicable.</p>
+  </footer>
+
+  <script>
+    // ─────────────────────────────────────────────────────────────────────────
+    // DELIVERY CONFIGURATION
+    // Edit this block to switch delivery modes and set your URLs.
+    // ─────────────────────────────────────────────────────────────────────────
+
+    const DELIVERY_CONFIG = {
+      // DELIVERY_MODE options:
+      //   "pdf"    — shows a direct download/hosted PDF link after signup
+      //   "notion" — shows a Notion public doc link after signup
+      //   "email"  — confirmation only; playbook delivered via automated email
+      //              (use this when your ESP handles delivery automatically)
+      mode: "notion",
+
+      // If mode is "pdf" — URL of your hosted PDF or Google Drive/Dropbox link
+      pdfUrl: "YOUR_PDF_URL_HERE",
+
+      // If mode is "notion" — URL of your public Notion page
+      notionUrl: "https://gusty-stoat-9d8.notion.site/The-Amazon-Signal-Map-Complete-Operator-Kit-32733ce1b82c818a92a4d104a2fd1f4f",
+
+      // Your LinkedIn profile URL (shown in confirmation state)
+      // TODO: Set your LinkedIn profile URL, e.g.: "https://www.linkedin.com/in/your-handle"
+      linkedInUrl: "",  // ← add your LinkedIn handle before going live
+    };
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // ESP INTEGRATION POINT
+    //
+    // You have two options for connecting an email service provider:
+    //
+    // OPTION A — Replace the <form> elements in the HTML with your ESP's
+    //   native embed code (ConvertKit form embed, MailerLite embed, etc.).
+    //   Remove the onsubmit="handleSubmit(event)" attribute from each form.
+    //   The JavaScript below is no longer needed in that case.
+    //
+    // OPTION B — Keep the native forms and add an API call inside
+    //   handleSubmit() at the marked location below. Then set DELIVERY_CONFIG
+    //   to your chosen mode and the confirmation state fires after the API
+    //   call resolves. This gives you full control over the confirmation UI.
+    //
+    //   ConvertKit API (v3):
+    //     POST https://api.convertkit.com/v3/forms/{FORM_ID}/subscribe
+    //     Body: { api_key: "YOUR_KEY", email }
+    //
+    //   MailerLite API:
+    //     POST https://connect.mailerlite.com/api/subscribers
+    //     Headers: { Authorization: "Bearer YOUR_TOKEN" }
+    //     Body: { email, groups: ["GROUP_ID"] }
+    //
+    //   Beehiiv API:
+    //     POST https://api.beehiiv.com/v2/publications/{PUB_ID}/subscriptions
+    //     Headers: { Authorization: "Bearer YOUR_KEY" }
+    //     Body: { email }
+    //
+    // ─────────────────────────────────────────────────────────────────────────
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const emailInput = form.querySelector('input[type=email]');
+      const submitBtn = form.querySelector('button[type=submit]');
+      const email = emailInput.value.trim();
+
+      // Remove any prior error messages
+      const priorError = form.querySelector('.form-error');
+      if (priorError) priorError.remove();
+
+      // Loading state
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      emailInput.disabled = true;
+
+      try {
+
+        // ── ESP API CALL GOES HERE (Option B) ─────────────────────────────
+        // Uncomment and fill in whichever ESP you are using.
+        //
+        // await fetch("https://api.convertkit.com/v3/forms/FORM_ID/subscribe", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({ api_key: "YOUR_API_KEY", email }),
+        // });
+        //
+        // ── END ESP API CALL ───────────────────────────────────────────────
+
+        showConfirmation(form, email);
+
+      } catch (err) {
+        // Restore form to interactive state and show error
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        emailInput.disabled = false;
+        showError(form);
+      }
+    }
+
+    function showConfirmation(form, email) {
+      const cfg = DELIVERY_CONFIG;
+
+      const deliveryBtn =
+        cfg.mode === 'pdf'
+          ? `<a href="${cfg.pdfUrl}" target="_blank" rel="noopener"
+               style="display:inline-block; margin-top:18px; padding:13px 30px;
+                      background:#e85d26; color:#fff; font-weight:700; font-size:15px;
+                      border-radius:8px; text-decoration:none; letter-spacing:-0.01em;">
+               Download The Signal Map →
+             </a>`
+          : cfg.mode === 'notion'
+          ? `<a href="${cfg.notionUrl}" target="_blank" rel="noopener"
+               style="display:inline-block; margin-top:18px; padding:13px 30px;
+                      background:#e85d26; color:#fff; font-weight:700; font-size:15px;
+                      border-radius:8px; text-decoration:none; letter-spacing:-0.01em;">
+               Open in Notion →
+             </a>
+             <p style="font-size:12px; color:#9ca3af; margin-top:10px;">
+               Tip: Duplicate to your own Notion workspace to save it.
+             </p>`
+          : `<p style="font-size:14px; color:#6b7280; margin-top:12px;">
+               Check your inbox — the playbook is on its way.
+             </p>`;
+
+      form.innerHTML = `
+        <div style="text-align:center; padding:28px 16px;">
+          <div class="form-confirm-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                 stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div style="font-weight:700; font-size:19px; color:#0d0d0d; margin-bottom:8px;
+                      font-family:'Playfair Display', Georgia, serif;">
+            You're in.
+          </div>
+          <div style="font-size:14px; color:#6b7280; line-height:1.65;">
+            The Signal Map playbook is ready for <strong>${email}</strong>.
+          </div>
+          ${deliveryBtn}
+          ${cfg.linkedInUrl ? `<div style="margin-top:22px; font-size:12.5px; color:#9ca3af;">
+            Questions?
+            <a href="${cfg.linkedInUrl}" target="_blank" rel="noopener"
+               style="color:#e85d26; text-decoration:none;">Reach out on LinkedIn</a>
+          </div>` : ''}
+        </div>
+      `;
+    }
+
+    function showError(form) {
+      const err = document.createElement('p');
+      err.className = 'form-error';
+      err.textContent = 'Something went wrong. Please try again or reach out directly on LinkedIn.';
+      form.appendChild(err);
+    }
+  </script>
+</body>
+</html>
